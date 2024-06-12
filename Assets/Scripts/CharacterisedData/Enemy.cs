@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     
-    [SerializeField] private float health = 100f;
-    [SerializeField] private float attackPower;
+    public float health = 5f;
+    public float attackPower;
     
 }

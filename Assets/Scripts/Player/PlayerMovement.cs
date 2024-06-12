@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private CinemachineTransposer transposer;
+    private bool canMove;
 
     void Start()
     {
@@ -29,6 +31,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
+    {
+        if(canMove)
+        {
+            GetInput();
+        }
+    }
+
+    private void GetInput()
     {
         // Get input from the player
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -48,5 +58,10 @@ public class PlayerMovement : MonoBehaviour
         {
             virtualCamera.Follow = transform;
         }
+    }
+    
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
     }
 }
